@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 09:23:10 by khafni            #+#    #+#             */
-/*   Updated: 2021/03/14 15:36:50 by khafni           ###   ########.fr       */
+/*   Updated: 2021/03/14 17:31:48 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@ void			dlist_move_cursor_to_next(t_dlist l);
 void			dlist_move_cursor_to_previous(t_dlist l);
 void			dlist_set_after_cursor(t_dlist l, void *value, char delete);
 void			dlist_set_before_cursor(t_dlist l, void *value, char delete);
-void			*dlist_get_after_cursor(t_dlist l, void *value, char delete);
-void			*dlist_get_before_cursor(t_dlist l, void *value, char delete);
+void			*dlist_get_after_cursor(t_dlist l, char delete);
+void			*dlist_get_before_cursor(t_dlist l, char delete);
 char			is_empty_dlist(t_dlist l);
-
+void			dlist_pushback(t_dlist l, void *value);
 
 #endif

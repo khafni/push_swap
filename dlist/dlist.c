@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 12:17:36 by khafni            #+#    #+#             */
-/*   Updated: 2021/03/14 15:40:21 by khafni           ###   ########.fr       */
+/*   Updated: 2021/03/14 18:44:44 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ void			dlist_insert_after_cursor(t_dlist l, void *value)
 void			dlist_insert_before_cursor(t_dlist l, void *value)
 {
 	t_dlist_cell new;
+
+	new = malloc(sizeof(struct s_dlist_cell));
 	new->value = value;
 	new->p = l->cursor_p;
 	new->n = l->cursor_n;
@@ -165,12 +167,12 @@ void			dlist_set_before_cursor(t_dlist l, void *value, char delete)
 	c->value = value;
 }
 
-void			*dlist_get_after_cursor(t_dlist l, void *value, char delete)
+void			*dlist_get_after_cursor(t_dlist l, char delete)
 {
 	return (l->cursor_n->value);
 }
 
-void			*dlist_get_before_cursor(t_dlist l, void *value, char delete)
+void			*dlist_get_before_cursor(t_dlist l, char delete)
 {
 	return (l->cursor_p->value);
 }
@@ -179,15 +181,8 @@ void print_str(void *str)
 {
 	printf("%s", (char*)str);
 }
-
-int main(int argc, char *argv[])
+void			dlist_pushback(t_dlist l, void *value)
 {
-	t_dlist dl;
-
-	dl = dlist_empty_create(free, NULL, print_str);
-	dlist_insert_after_cursor(dl, strdup("wooow"));
-	dlist_insert_after_cursor(dl, strdup("loool"));
-	dlist_insert_after_cursor(dl, strdup("weew"));
-	dlist_print(dl, " : ");
-	dlist_destroy(dl);
+	dlist_move_cursor_to_tail(l);
+	dlist_insert_before_cursor(l, value);
 }
