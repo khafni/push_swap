@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 12:17:36 by khafni            #+#    #+#             */
-/*   Updated: 2021/03/13 19:23:42 by khafni           ###   ########.fr       */
+/*   Updated: 2021/03/14 15:40:21 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,14 +116,65 @@ void			dlist_remove_before_cursor(t_dlist l, char delete)
 
 	n = l->cursor_n;
 	p = l->cursor_p;
-	p->n = n->n;
-	n->n->p = p;
-	
+	n->p = p->p;
+	p->p->n = n;	
+	l->cursor_p = p->p;
+	if (delete)
+		(*(l->destroy))(p->value);
+	free(p);
+	l->len--;
 }
-void			dlist_move_cursor_to_head(t_dlist l);
-void			dlist_move_cursor_to_tail(t_dlist l);
-void			dlist_move_cursor_to_next(t_dlist l);
-void			dlist_move_cursor_to_previous(t_dlist l);
+void			dlist_move_cursor_to_head(t_dlist l)
+{
+	l->cursor_p = l->sentinel;
+	l->cursor_n = l->sentinel->n;
+}
+void			dlist_move_cursor_to_tail(t_dlist l)
+{
+	l->cursor_n = l->sentinel;
+	l->cursor_p = l->sentinel->p;
+}
+void			dlist_move_cursor_to_next(t_dlist l)
+{
+	l->cursor_p = l->cursor_n;
+	l->cursor_n = l->cursor_n->n;
+}
+void			dlist_move_cursor_to_previous(t_dlist l)
+{
+	l->cursor_n = l->cursor_p;
+	l->cursor_p = l->cursor_p->p;
+}
+
+void			dlist_set_after_cursor(t_dlist l, void *value, char delete)
+{
+	t_dlist_cell c;
+
+	c = l->cursor_n;
+	if (delete)
+		(*(l->destroy))(c->value);
+	c->value = value;
+}
+
+void			dlist_set_before_cursor(t_dlist l, void *value, char delete)
+{
+	t_dlist_cell	c;
+
+	c = l->cursor_p;
+	if (delete)
+		(*(l->destroy))(c->value);
+	c->value = value;
+}
+
+void			*dlist_get_after_cursor(t_dlist l, void *value, char delete)
+{
+	return (l->cursor_n->value);
+}
+
+void			*dlist_get_before_cursor(t_dlist l, void *value, char delete)
+{
+	return (l->cursor_p->value);
+}
+
 void print_str(void *str)
 {
 	printf("%s", (char*)str);
