@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 09:23:10 by khafni            #+#    #+#             */
-/*   Updated: 2021/03/14 17:31:48 by khafni           ###   ########.fr       */
+/*   Updated: 2021/03/16 11:57:18 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef void	(*t_printer)(void *obj);
 
 typedef int		(*t_compare)(void *obj);
 
+
 typedef struct s_dlist_cell *t_dlist_cell;
 
 struct	s_dlist_cell
@@ -48,6 +49,21 @@ struct	s_dlist_cell
 	t_dlist_cell	p;	
 	t_dlist_cell	n;
 };
+
+/*
+** the sentinal is the node of the linked list that points to the first
+** element of the list and points also to the last element
+** and when a list is empty it contains only the sentinal node that points
+** to itself 
+*/
+
+/*
+**	a cursor is just two pointers previous and next that points to
+** a position in our linked list such as when we are between two
+** nodes previous and next each points to a node and when
+** we are at the head of the list the cursor points to the sentinel node
+** and the element after it
+*/
 
 typedef struct s_dlist	*t_dlist;
 
@@ -62,8 +78,19 @@ struct s_dlist
 	size_t			len;
 };
 
+/*
+** dlist constructor
+*/
+
 t_dlist			dlist_empty_create(t_destroy destroy, t_compare compare, t_printer printer);
+/*
+**	dlist distructor
+*/
 void			dlist_destroy(t_dlist l);
+
+/*
+** dlist element's insertion methods
+*/
 void			dlist_insert_after_cursor(t_dlist l, void *value);
 void			dlist_insert_before_cursor(t_dlist l, void *value);
 
@@ -74,16 +101,36 @@ void			dlist_insert_before_cursor(t_dlist l, void *value);
 
 void			dlist_remove_after_cursor(t_dlist l, char delete);
 void			dlist_remove_before_cursor(t_dlist l, char delete);
+/*
+** print list's nodes' content no matter their data type as long
+** as the content printing method if provider to the list 
+*/
 void			dlist_print(t_dlist l, char *sep);
+/*
+** cursor mouvement methods
+*/
 void			dlist_move_cursor_to_head(t_dlist l);
 void			dlist_move_cursor_to_tail(t_dlist l);
 void			dlist_move_cursor_to_next(t_dlist l);
 void			dlist_move_cursor_to_previous(t_dlist l);
+/*
+** dlist setters
+*/
 void			dlist_set_after_cursor(t_dlist l, void *value, char delete);
 void			dlist_set_before_cursor(t_dlist l, void *value, char delete);
+/*
+**	dlist getters
+*/
 void			*dlist_get_after_cursor(t_dlist l, char delete);
 void			*dlist_get_before_cursor(t_dlist l, char delete);
+/*
+**	not needed if the len member of a dlist is used but i like syntatical sugar
+*/
 char			is_empty_dlist(t_dlist l);
+
+/*
+**	pushing an element to the end of the list
+*/
 void			dlist_pushback(t_dlist l, void *value);
 
 #endif

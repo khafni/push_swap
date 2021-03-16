@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 17:36:23 by khafni            #+#    #+#             */
-/*   Updated: 2021/03/14 19:01:26 by khafni           ###   ########.fr       */
+/*   Updated: 2021/03/16 12:40:31 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,6 @@ void			sa(t_two_stacks *ts)
 	values_p_swap(ts->a->cursor_n->value, ts->a->cursor_n->n->value);
 }
 
-int *int_dup(int num)
-{
-	int *num;
-
-
-	str = 
-}
 int main()
 {
 	void *v1_ = malloc(sizeof(int));
