@@ -43,20 +43,6 @@ void			values_p_swap(void **v1_, void **v2_)
 	*v2_ = tmp;
 }
 
-
-void			sa(t_two_stacks ts)
-{
-	int a;
-	int b;
-	int tmp;
-	if (ts->a->len < 2)
-		return ;
-	dlist_move_cursor_to_tail(ts->a);
-	a = *(int*)(ts->a->cursor_p->value); 
-	b = *(int*)(ts->a->cursor_p->p->value);
-	values_p_swap(&ts->a->cursor_p->value,  &ts->a->cursor_p->p->value);
-}
-
 int *intdub(int n)
 {
 	int *int_ptr;
@@ -66,15 +52,26 @@ int *intdub(int n)
 	return (int_ptr);
 }
 
-int main()
+/* int main()
 {
 	t_two_stacks ts;
 
 	ts = empty_two_stacks();
-	dlist_pushback(ts->a, intdub(1));
-	dlist_pushback(ts->a, intdub(2));
+	dlist_pushback(ts->b, intdub(1));
+	dlist_pushback(ts->b, intdub(2));
+	dlist_pushback(ts->b, intdub(3));
+	dlist_pushback(ts->b, intdub(4));
+	dlist_pushback(ts->b, intdub(5));
 	dlist_print(ts->a, " , ");
-	sa(ts);
+	dlist_print(ts->b, " , ");	
+
+
+	rrb(ts);
+	rrb(ts);
+	//rb(ts);
+
+	printf("\n");
 	dlist_print(ts->a, " , ");	
+	dlist_print(ts->b, " , ");	
 	two_stacks_destroy(ts);
-}
+} */

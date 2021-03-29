@@ -13,6 +13,8 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "dlist/dlists.h"
+# include "unistd.h"
+# include "fcntl.h"
 
 typedef struct s_two_stacks  *t_two_stacks;
 
@@ -22,9 +24,22 @@ struct s_two_stacks
 	t_dlist b;
 };
 
+void			values_p_swap(void **v1_, void **v2_);
+
 t_two_stacks	empty_two_stacks(void);
 void			two_stacks_destroy(t_two_stacks ts);
 void			sa(t_two_stacks ts);
 void			sb(t_two_stacks ts);
 void			ss(t_two_stacks ts);
+void			pa(t_two_stacks ts);
+void			pb(t_two_stacks ts);
+void			ra(t_two_stacks ts);
+void			rb(t_two_stacks ts);
+void			rr(t_two_stacks ts);
+void			rra(t_two_stacks ts);
+void			rrb(t_two_stacks ts);
+void			rrr(t_two_stacks ts);
+
+int *intdub(int n);
+
 #endif

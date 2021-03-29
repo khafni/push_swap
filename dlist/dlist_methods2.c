@@ -17,16 +17,19 @@ void			dlist_move_cursor_to_head(t_dlist l)
 	l->cursor_p = l->sentinel;
 	l->cursor_n = l->sentinel->n;
 }
+
 void			dlist_move_cursor_to_tail(t_dlist l)
 {
 	l->cursor_n = l->sentinel;
 	l->cursor_p = l->sentinel->p;
 }
+
 void			dlist_move_cursor_to_next(t_dlist l)
 {
 	l->cursor_p = l->cursor_n;
 	l->cursor_n = l->cursor_n->n;
 }
+
 void			dlist_move_cursor_to_previous(t_dlist l)
 {
 	l->cursor_n = l->cursor_p;
