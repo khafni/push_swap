@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 17:02:26 by khafni            #+#    #+#             */
-/*   Updated: 2021/03/28 16:30:02 by khafni           ###   ########.fr       */
+/*   Updated: 2021/03/31 15:19:42 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ struct s_two_stacks
 void			values_p_swap(void **v1_, void **v2_);
 
 t_two_stacks	empty_two_stacks(void);
+typedef void			(*t_operation) (t_two_stacks ts);
 void			two_stacks_destroy(t_two_stacks ts);
 void			sa(t_two_stacks ts);
 void			sb(t_two_stacks ts);

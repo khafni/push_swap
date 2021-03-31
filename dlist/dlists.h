@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 09:23:10 by khafni            #+#    #+#             */
-/*   Updated: 2021/03/16 11:57:18 by khafni           ###   ########.fr       */
+/*   Updated: 2021/03/31 12:17:50 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,5 +132,7 @@ char			is_empty_dlist(t_dlist l);
 **	pushing an element to the end of the list
 */
 void			dlist_pushback(t_dlist l, void *value);
+
+int				is_dlist_sorted(t_dlist l);
 
 #endif
