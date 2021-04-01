@@ -44,32 +44,29 @@ t_operation which_operation(t_rstr rs)
 	return (NULL);
 }
 
-
-
-int main(int argc, char **argv)
+t_two_stacks get_arguments(int argc, char **argv, int *e)
 {
-	t_two_stacks ts;
-	int i;
-	t_operation op;
-	t_file		f;
-	int			e;
+	t_two_stacks	ts;
+	int				i;
 
-	if (argc < 2)
-		return 1;
-	e = 0;
 	ts = empty_two_stacks();
 	i = 1;
 	while (i < argc)
 	{
 		if(!ft_is_num(argv[1]))
-		{
-			write (1, "ERROR", 6);
-			return (1);
-		}
+			*e = 1;
 		dlist_move_cursor_to_tail(ts->a);
 		dlist_insert_before_cursor(ts->a, intdub(atoi(argv[i])));
 		i++;
 	}
+	return (ts);
+}
+
+void	get_apply_operations(t_two_stacks ts, int *e)
+{
+	t_file f;
+	t_operation op;
+
 	f = file(0);
 	while (f->reading_state > 0)
 	{
@@ -77,12 +74,29 @@ int main(int argc, char **argv)
 		op = which_operation(f->str_buff);
 		if (op)
 			(*op)(ts);
+		else
+			*e = 1;
 	}
-	if (is_dlist_sorted(ts->a) && !ts->b->len)
+	file_destroy(f);
+}
+
+int main(int argc, char **argv)
+{
+	t_two_stacks ts;
+	t_operation op;	
+	int			e;
+
+	if (argc < 2)
+		return 1;
+	e = 0;
+	ts = get_arguments(argc, argv, &e);
+	get_apply_operations(ts, &e);	
+	if (e)
+		printf("ERROR");
+	else if (is_dlist_sorted(ts->a) && !ts->b->len)
 		printf("OK");
 	else
-		printf("KO");
-	file_destroy(f);
+		printf("KO");	
 	two_stacks_destroy(ts);
 	return (0);
 }

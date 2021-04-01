@@ -14,5 +14,10 @@
 - [x] rrb :reverse rotate b- shift down all elements of stack b by 1. The last element becomes the first one.
 - [x] rrr :rra and rrb at the same time.
 
-## later TO-DOs
-- [] make the checker program
+## checker program
+- [x] get_arguments func
+- [x] get and apply operations func
+- [x] finish the checker program
+
+## push swap program
+[]
