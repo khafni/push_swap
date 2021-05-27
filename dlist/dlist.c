@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 12:17:36 by khafni            #+#    #+#             */
-/*   Updated: 2021/03/31 12:10:46 by khafni           ###   ########.fr       */
+/*   Updated: 2021/03/16 12:09:42 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,6 @@ void			dlist_destroy(t_dlist l_)
 		free(c);
 		c = next;	
 	}
+	free(l->sentinel);
 	free(l);
 }
-

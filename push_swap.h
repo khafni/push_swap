@@ -42,5 +42,5 @@ void			rrb(t_two_stacks ts);
 void			rrr(t_two_stacks ts);
 
 int *intdub(int n);
-
+int				is_dlist_sorted(t_dlist l);
 #endif

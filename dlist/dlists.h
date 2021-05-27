@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 09:23:10 by khafni            #+#    #+#             */
-/*   Updated: 2021/03/31 12:17:50 by khafni           ###   ########.fr       */
+/*   Updated: 2021/04/16 13:42:47 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef void	(*t_printer)(void *obj);
 ** function pointer to abstract
 */
 
-typedef int		(*t_compare)(void *obj);
+typedef int		(*t_compare)(void *obj1, void *obj2);
 
 
 typedef struct s_dlist_cell *t_dlist_cell;
@@ -95,6 +95,15 @@ void			dlist_insert_after_cursor(t_dlist l, void *value);
 void			dlist_insert_before_cursor(t_dlist l, void *value);
 
 /*
+** insert element after cursor and move the cursor forward
+*/
+void			dlist_insert_after_cursor_n_move_n(t_dlist l, void *value);
+/*
+** insert element before cursor and move the cursor backward 
+*/
+void			dlist_insert_before_cursor_n_move_p(t_dlist l, void *value);
+
+/*
 **	delete is a boolean set as 0 to not remove the content of the element after cursor
 **	or set to 1 to remove it
 */
@@ -132,7 +141,5 @@ char			is_empty_dlist(t_dlist l);
 **	pushing an element to the end of the list
 */
 void			dlist_pushback(t_dlist l, void *value);
-
-int				is_dlist_sorted(t_dlist l);
 
 #endif

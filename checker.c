@@ -92,11 +92,11 @@ int main(int argc, char **argv)
 	ts = get_arguments(argc, argv, &e);
 	get_apply_operations(ts, &e);	
 	if (e)
-		printf("ERROR");
+		printf("ERROR\n");
 	else if (is_dlist_sorted(ts->a) && !ts->b->len)
-		printf("OK");
+		printf("OK\n");
 	else
-		printf("KO");	
+		printf("KO\n");	
 	two_stacks_destroy(ts);
 	return (0);
 }

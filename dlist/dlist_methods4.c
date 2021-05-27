@@ -5,28 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/31 12:07:41 by khafni            #+#    #+#             */
-/*   Updated: 2021/04/01 15:12:40 by khafni           ###   ########.fr       */
+/*   Created: 2021/04/16 13:39:49 by khafni            #+#    #+#             */
+/*   Updated: 2021/04/16 13:44:28 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "dlists.h"
 
-int		is_dlist_sorted(t_dlist l)
+void			dlist_insert_after_cursor_n_move_n(t_dlist l, void *value)
 {
-	int is_sort;
-	int val1;
-	int val2;
+	dlist_insert_after_cursor(l, value);
+	dlist_move_cursor_to_next(l);
+}
 
-	is_sort = 1;
-	dlist_move_cursor_to_head(l);
-	while (l->cursor_n->n != l->sentinel)
-	{
-		val1 = *(int*)l->cursor_n->value;
-		val2 = *(int*)l->cursor_n->n->value;
-		if (val1 > val2)
-			is_sort = 0;
-		dlist_move_cursor_to_next(l);
-	}
-	return (is_sort);
+void			dlist_insert_before_cursor_n_move_p(t_dlist l, void *value)
+{
+	dlist_insert_before_cursor(l, value);
+	dlist_move_cursor_to_previous(l);
 }
