@@ -44,13 +44,14 @@ t_operation which_operation(t_rstr rs)
 	return (NULL);
 }
 
-t_two_stacks get_arguments(int argc, char **argv, int *e)
+t_two_stacks get_arguments(int argc, char **argv, int *e, int args_number)
 {
 	t_two_stacks	ts;
 	int				i;
 
 	ts = empty_two_stacks();
 	i = 1;
+	ts->args_number = args_number;
 	while (i < argc)
 	{
 		if(!ft_is_num(argv[1]))
@@ -79,7 +80,7 @@ void	get_apply_operations(t_two_stacks ts, int *e)
 	}
 	file_destroy(f);
 }
-
+void positive_sort(t_dlist );
 int main(int argc, char **argv)
 {
 	t_two_stacks ts;

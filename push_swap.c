@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 17:36:23 by khafni            #+#    #+#             */
-/*   Updated: 2021/03/28 17:38:58 by khafni           ###   ########.fr       */
+/*   Updated: 2021/05/27 18:21:33 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_two_stacks empty_two_stacks(void)
 	ts = malloc(sizeof(struct s_two_stacks));
 	ts->a = dlist_empty_create(free, NULL, print_int);
 	ts->b = dlist_empty_create(free, NULL, print_int);
+	ts->args_number = 0;
 	return (ts);
 }
 
@@ -63,6 +64,7 @@ int *intdub(int n)
 	dlist_pushback(ts->b, intdub(4));
 	dlist_pushback(ts->b, intdub(5));
 	dlist_print(ts->a, " , ");
+	printf("\n-------\n");
 	dlist_print(ts->b, " , ");	
 
 
@@ -72,6 +74,7 @@ int *intdub(int n)
 
 	printf("\n");
 	dlist_print(ts->a, " , ");	
+	printf("\n-------\n");
 	dlist_print(ts->b, " , ");	
 	two_stacks_destroy(ts);
 } */

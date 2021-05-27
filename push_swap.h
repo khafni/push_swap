@@ -6,15 +6,15 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 17:02:26 by khafni            #+#    #+#             */
-/*   Updated: 2021/03/31 15:19:42 by khafni           ###   ########.fr       */
+/*   Updated: 2021/05/27 18:23:35 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "dlist/dlists.h"
-# include "unistd.h"
-# include "fcntl.h"
+# include <unistd.h>
+# include <fcntl.h>
 
 typedef struct s_two_stacks  *t_two_stacks;
 
@@ -22,6 +22,7 @@ struct s_two_stacks
 {
 	t_dlist a;
 	t_dlist b;
+	int args_number;
 };
 
 void			values_p_swap(void **v1_, void **v2_);
@@ -43,4 +44,15 @@ void			rrr(t_two_stacks ts);
 
 int *intdub(int n);
 int				is_dlist_sorted(t_dlist l);
+
+typedef struct s_save t_save;
+
+struct s_save
+{
+	int i;
+	int k;
+};
+
+void positive_sort()
+
 #endif
