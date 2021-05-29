@@ -53,28 +53,117 @@ int *intdub(int n)
 	return (int_ptr);
 }
 
-/* int main()
+t_two_stacks get_arguments_(int argc, char **argv)
 {
-	t_two_stacks ts;
+	t_two_stacks	ts;
+	int				i;
 
 	ts = empty_two_stacks();
-	dlist_pushback(ts->b, intdub(1));
-	dlist_pushback(ts->b, intdub(2));
-	dlist_pushback(ts->b, intdub(3));
-	dlist_pushback(ts->b, intdub(4));
-	dlist_pushback(ts->b, intdub(5));
-	dlist_print(ts->a, " , ");
-	printf("\n-------\n");
-	dlist_print(ts->b, " , ");	
+	i = 1;
+	ts->args_number = argc - 1;
+	while (i <= ts->args_number)
+	{
+		/* dlist_move_cursor_to_tail(ts->a);
+		dlist_insert_before_cursor(ts->a, intdub(atoi(argv[i]))); */
+		dlist_pushback(ts->a, intdub(atoi(argv[i])));
+		i++;
+	}
+	//dlist_move_cursor_to_head(ts->a);
+	return (ts);
+}
 
+void *dlist_get_last_elem(t_dlist dl)
+{
+	if (dl->len == 0)
+		return (NULL);	
+	dlist_move_cursor_to_head(dl);
+	while (dl->cursor_n->n != dl->sentinel)
+	{
+		dlist_move_cursor_to_next(dl);
+	}
+	return dl->cursor_n->value;
+}
+void positive_sort(t_two_stacks tstacks, t_save *save, int args_number)
+{
+	int j;
 
-	rrb(ts);
-	rrb(ts);
-	//rb(ts);
+	j = 1;
+	while (j < args_number)
+	{
+		if ((*(int*)(dlist_get_last_elem(tstacks->a)) >> save->i) & 1)
+		{
+			pb(tstacks);
+			rb(tstacks);
+			write(1, "pb\nrb\n", 7);
+			save->k++;
+		}
+		else
+		{
+			ra(tstacks);
+			write(1, "ra\n", 4);
+		}
+		j++;
+	}
+	if (tstacks->b->len != 0) {
+		j = 0;
+		while (j < save->k)
+		{
+			pa(tstacks);
+			ra(tstacks);
+			write(2, "pa\n", 4);
+			write(2, "ra\n", 4);
+			j++;
+		}
+	}
+}
 
-	printf("\n");
-	dlist_print(ts->a, " , ");	
-	printf("\n-------\n");
-	dlist_print(ts->b, " , ");	
-	two_stacks_destroy(ts);
-} */
+int main(int argc, char *argv[])
+{
+
+	t_save save;
+
+	save.i = 0;
+	save.k = 0;
+	
+	t_two_stacks ts;
+
+	ts = get_arguments_(argc, argv);
+	/* while (save.i < 32)
+	{
+		save.k = 0;
+		positive_sort(ts, &save, argc);
+		save.i++;
+	}	 */
+	
+	/* dlist_move_cursor_to_head(ts->a);
+	while (ts->a->cursor_n != ts->a->sentinel)
+	{
+		printf("%d", *(int*)(ts->a->cursor_n->value));
+		dlist_move_cursor_to_next(ts->a);
+	}
+	printf("\n-----------------------------\n");
+	while (ts->b->cursor_n != ts->b->sentinel)
+	{
+		printf("%d", *(int*)(ts->b->cursor_n->value));
+		dlist_move_cursor_to_next(ts->b);
+	} */
+
+	//rra(ts);
+	pb(ts);
+	//sa(ts);	
+	//rra(ts);
+	//pa(ts);
+	dlist_move_cursor_to_head(ts->a);
+	while (ts->a->cursor_n != ts->a->sentinel)
+	{
+		printf("%d\n", *(int*)(ts->a->cursor_n->value));
+		dlist_move_cursor_to_next(ts->a);
+	}
+	printf("\n-----------------------------\n");
+	dlist_move_cursor_to_head(ts->b);
+	while (ts->b->cursor_n != ts->b->sentinel)
+	{
+		printf("%d\n", *(int*)(ts->b->cursor_n->value));
+		dlist_move_cursor_to_next(ts->b);
+	}
+}

@@ -53,6 +53,6 @@ struct s_save
 	int k;
 };
 
-void positive_sort()
+void positive_sort(t_two_stacks tstacks, t_save *save, int args_number);
 
 #endif

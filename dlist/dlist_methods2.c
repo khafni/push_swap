@@ -22,6 +22,8 @@ void			dlist_move_cursor_to_tail(t_dlist l)
 {
 	l->cursor_n = l->sentinel;
 	l->cursor_p = l->sentinel->p;
+	/* if (l->len)
+		dlist_move_cursor_to_previous(l); */
 }
 
 void			dlist_move_cursor_to_next(t_dlist l)

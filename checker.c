@@ -80,8 +80,8 @@ void	get_apply_operations(t_two_stacks ts, int *e)
 	}
 	file_destroy(f);
 }
-void positive_sort(t_dlist );
-int main(int argc, char **argv)
+
+/* int main(int argc, char **argv)
 {
 	t_two_stacks ts;
 	t_operation op;	
@@ -90,7 +90,7 @@ int main(int argc, char **argv)
 	if (argc < 2)
 		return 1;
 	e = 0;
-	ts = get_arguments(argc, argv, &e);
+	ts = get_arguments(argc, argv, &e, argc);
 	get_apply_operations(ts, &e);	
 	if (e)
 		printf("ERROR\n");
@@ -100,4 +100,4 @@ int main(int argc, char **argv)
 		printf("KO\n");	
 	two_stacks_destroy(ts);
 	return (0);
-}
+ }*/
