@@ -3,6 +3,8 @@
 
 void push_to_stack(t_dlist stack, void *data)
 {
+    if (!data)
+        return ;
     dlist_move_cursor_to_tail(stack);
     dlist_insert_after_cursor(stack, data); 
 }

@@ -1,7 +1,7 @@
 # push_swap
 
 ## allowed operations
-- [x] doubly doubly circular linked list basic module
+- [x] doubly circular linked list basic module
 - [x] sa :swap a - swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements).
 - [x] sb :swap b- swap the first 2 elements at the top of stack b. Do nothing if there is only one or no elements).
 - [x] ss :sa and sb at the same time.

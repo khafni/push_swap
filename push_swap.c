@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 17:36:23 by khafni            #+#    #+#             */
-/*   Updated: 2021/05/27 18:21:33 by khafni           ###   ########.fr       */
+/*   Updated: 2021/06/04 11:53:00 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ t_two_stacks get_arguments_(int argc, char **argv)
 	ts = empty_two_stacks();
 	i = 1;
 	ts->args_number = argc - 1;
+	
 	while (i <= ts->args_number)
 	{
 		/* dlist_move_cursor_to_tail(ts->a);
@@ -83,12 +84,13 @@ void *dlist_get_last_elem(t_dlist dl)
 	}
 	return dl->cursor_n->value;
 }
+
 void positive_sort(t_two_stacks tstacks, t_save *save, int args_number)
 {
 	int j;
 
 	j = 1;
-	while (j < args_number)
+	while (j <= args_number)
 	{
 		if ((*(int*)(dlist_get_last_elem(tstacks->a)) >> save->i) & 1)
 		{
@@ -117,6 +119,37 @@ void positive_sort(t_two_stacks tstacks, t_save *save, int args_number)
 	}
 }
 
+void negative_sort(t_two_stacks tstacks, t_save *save, int args_number)
+{
+	int j;
+
+	j = 1;
+	while (j <= args_number)
+	{
+		if ((*(int*)(dlist_get_last_elem(tstacks->a)) >> 31) & 1)
+		{
+			pb(tstacks);
+			write(1, "pb\n", 7);
+			save->k++;
+		}
+		else
+		{
+			ra(tstacks);
+			write(1, "ra\n", 4);
+		}
+		j++;
+	}
+	if (tstacks->b->len != 0) {
+		j = 0;
+		while (j < save->k)
+		{
+			pa(tstacks);
+			write(2, "pa\n", 4);
+			j++;
+		}
+	}
+}
+
 int main(int argc, char *argv[])
 {
 
@@ -128,13 +161,30 @@ int main(int argc, char *argv[])
 	t_two_stacks ts;
 
 	ts = get_arguments_(argc, argv);
-	/* while (save.i < 32)
+/* 	sa(ts);
+	pb(ts);
+	pb(ts);
+	pb(ts);
+	ra(ts);
+	rb(ts);
+	rra(ts);
+	rrb(ts);
+	sa(ts);
+	pa(ts);
+	pa(ts);
+	pa(ts); */
+	/* int len = argc - 1;
+	//printf("----------\n%d", *(int*)pop_from_stack(ts->a));
+	while (save.i < 31)
 	{
 		save.k = 0;
-		positive_sort(ts, &save, argc);
+		positive_sort(ts, &save, len);
 		save.i++;
-	}	 */
-	
+	}
+	save.k = 0;
+	negative_sort(ts, &save, len);
+	rb(ts);
+	write(1, "rb\n", 3); */
 	/* dlist_move_cursor_to_head(ts->a);
 	while (ts->a->cursor_n != ts->a->sentinel)
 	{
@@ -147,23 +197,11 @@ int main(int argc, char *argv[])
 		printf("%d", *(int*)(ts->b->cursor_n->value));
 		dlist_move_cursor_to_next(ts->b);
 	} */
-
-	//rra(ts);
-	pb(ts);
-	//sa(ts);	
-	//rra(ts);
-	//pa(ts);
-	dlist_move_cursor_to_head(ts->a);
-	while (ts->a->cursor_n != ts->a->sentinel)
+	int *val = pop_from_stack(ts->a);
+	while (val)
 	{
-		printf("%d\n", *(int*)(ts->a->cursor_n->value));
-		dlist_move_cursor_to_next(ts->a);
+		printf("%d\n", *val);
+		val = pop_from_stack(ts->a);
 	}
-	printf("\n-----------------------------\n");
-	dlist_move_cursor_to_head(ts->b);
-	while (ts->b->cursor_n != ts->b->sentinel)
-	{
-		printf("%d\n", *(int*)(ts->b->cursor_n->value));
-		dlist_move_cursor_to_next(ts->b);
-	}
+	return (0);
 }

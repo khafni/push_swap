@@ -37,25 +37,13 @@ void			ss(t_two_stacks ts)
 
 void			pa(t_two_stacks ts)
 {
-	void	*elem;
-
-	if (ts->b->len == 0)
-		return ;
-	dlist_move_cursor_to_tail(ts->b);
-	elem = ts->b->cursor_p->value;
-	dlist_remove_before_cursor(ts->b, 0);
-	dlist_pushback(ts->a, elem);
+	if (ts->b->len)
+		push_to_stack(ts->a, pop_from_stack(ts->b));
 }
 
 
 void			pb(t_two_stacks ts)
 {
-	void	*elem;
-
-	if (ts->a->len == 0)
-		return ;
-	dlist_move_cursor_to_tail(ts->a);
-	elem = ts->a->cursor_p->value;
-	dlist_remove_before_cursor(ts->a, 0);
-	dlist_pushback(ts->b, elem);
+	if (ts->a->len)
+		push_to_stack(ts->b, pop_from_stack(ts->a));
 }

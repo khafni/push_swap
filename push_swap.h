@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 17:02:26 by khafni            #+#    #+#             */
-/*   Updated: 2021/05/27 18:23:35 by khafni           ###   ########.fr       */
+/*   Updated: 2021/06/04 12:00:06 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ struct s_save
 };
 
 void positive_sort(t_two_stacks tstacks, t_save *save, int args_number);
+char				**ft_split(char const *s, char c);
 
 #endif
