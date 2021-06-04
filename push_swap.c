@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 17:36:23 by khafni            #+#    #+#             */
-/*   Updated: 2021/06/04 11:53:00 by khafni           ###   ########.fr       */
+/*   Updated: 2021/06/04 20:22:54 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,18 @@ int *intdub(int n)
 t_two_stacks get_arguments_(int argc, char **argv)
 {
 	t_two_stacks	ts;
-	int				i;
+	int				i;	
 
 	ts = empty_two_stacks();
 	i = 1;
 	ts->args_number = argc - 1;
-	
-	while (i <= ts->args_number)
-	{
-		/* dlist_move_cursor_to_tail(ts->a);
-		dlist_insert_before_cursor(ts->a, intdub(atoi(argv[i]))); */
-		dlist_pushback(ts->a, intdub(atoi(argv[i])));
-		i++;
-	}
+	//numbers = ft_split(argv[1], ' ');
+
+		while (i <= ts->args_number)
+		{
+			dlist_pushback(ts->a, intdub(atoi(argv[i])));
+			i++;
+		}
 	//dlist_move_cursor_to_head(ts->a);
 	return (ts);
 }
@@ -112,8 +111,8 @@ void positive_sort(t_two_stacks tstacks, t_save *save, int args_number)
 		{
 			pa(tstacks);
 			ra(tstacks);
-			write(2, "pa\n", 4);
-			write(2, "ra\n", 4);
+			write(1, "pa\n", 4);
+			write(1, "ra\n", 4);
 			j++;
 		}
 	}
@@ -144,7 +143,7 @@ void negative_sort(t_two_stacks tstacks, t_save *save, int args_number)
 		while (j < save->k)
 		{
 			pa(tstacks);
-			write(2, "pa\n", 4);
+			write(1, "pa\n", 4);
 			j++;
 		}
 	}
@@ -159,7 +158,7 @@ int main(int argc, char *argv[])
 	save.k = 0;
 	
 	t_two_stacks ts;
-
+	//printf("%s", argv[1]);
 	ts = get_arguments_(argc, argv);
 /* 	sa(ts);
 	pb(ts);
@@ -173,8 +172,10 @@ int main(int argc, char *argv[])
 	pa(ts);
 	pa(ts);
 	pa(ts); */
-	/* int len = argc - 1;
-	//printf("----------\n%d", *(int*)pop_from_stack(ts->a));
+
+	
+	int len = argc - 1;
+	
 	while (save.i < 31)
 	{
 		save.k = 0;
@@ -184,7 +185,10 @@ int main(int argc, char *argv[])
 	save.k = 0;
 	negative_sort(ts, &save, len);
 	rb(ts);
-	write(1, "rb\n", 3); */
+	write(1, "rb\n", 3);
+
+
+
 	/* dlist_move_cursor_to_head(ts->a);
 	while (ts->a->cursor_n != ts->a->sentinel)
 	{
@@ -197,11 +201,12 @@ int main(int argc, char *argv[])
 		printf("%d", *(int*)(ts->b->cursor_n->value));
 		dlist_move_cursor_to_next(ts->b);
 	} */
-	int *val = pop_from_stack(ts->a);
+	
+	/* int *val = pop_from_stack(ts->a);
 	while (val)
 	{
 		printf("%d\n", *val);
 		val = pop_from_stack(ts->a);
-	}
+	} */
 	return (0);
 }
