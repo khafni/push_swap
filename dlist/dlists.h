@@ -142,5 +142,11 @@ char			is_empty_dlist(t_dlist l);
 */
 void			dlist_pushback(t_dlist l, void *value);
 
+/*
+** stack methods 
+*/
+
+void push_to_stack(t_dlist stack, void *data);
+void *pop_from_stack(t_dlist stack);
 
 #endif
