@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 17:36:23 by khafni            #+#    #+#             */
-/*   Updated: 2021/06/04 20:22:54 by khafni           ###   ########.fr       */
+/*   Updated: 2021/06/17 15:44:16 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,71 +82,6 @@ void *dlist_get_last_elem(t_dlist dl)
 		dlist_move_cursor_to_next(dl);
 	}
 	return dl->cursor_n->value;
-}
-
-void positive_sort(t_two_stacks tstacks, t_save *save, int args_number)
-{
-	int j;
-
-	j = 1;
-	while (j <= args_number)
-	{
-		if ((*(int*)(dlist_get_last_elem(tstacks->a)) >> save->i) & 1)
-		{
-			pb(tstacks);
-			rb(tstacks);
-			write(1, "pb\nrb\n", 7);
-			save->k++;
-		}
-		else
-		{
-			ra(tstacks);
-			write(1, "ra\n", 4);
-		}
-		j++;
-	}
-	if (tstacks->b->len != 0) {
-		j = 0;
-		while (j < save->k)
-		{
-			pa(tstacks);
-			ra(tstacks);
-			write(1, "pa\n", 4);
-			write(1, "ra\n", 4);
-			j++;
-		}
-	}
-}
-
-void negative_sort(t_two_stacks tstacks, t_save *save, int args_number)
-{
-	int j;
-
-	j = 1;
-	while (j <= args_number)
-	{
-		if ((*(int*)(dlist_get_last_elem(tstacks->a)) >> 31) & 1)
-		{
-			pb(tstacks);
-			write(1, "pb\n", 7);
-			save->k++;
-		}
-		else
-		{
-			ra(tstacks);
-			write(1, "ra\n", 4);
-		}
-		j++;
-	}
-	if (tstacks->b->len != 0) {
-		j = 0;
-		while (j < save->k)
-		{
-			pa(tstacks);
-			write(1, "pa\n", 4);
-			j++;
-		}
-	}
 }
 
 int main(int argc, char *argv[])
