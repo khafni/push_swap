@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 17:02:26 by khafni            #+#    #+#             */
-/*   Updated: 2021/06/04 12:00:06 by khafni           ###   ########.fr       */
+/*   Updated: 2021/06/18 16:18:56 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "dlist/dlists.h"
 # include <unistd.h>
 # include <fcntl.h>
+# include "chunking.h"
 
 typedef struct s_two_stacks  *t_two_stacks;
 
@@ -44,16 +45,5 @@ void			rrr(t_two_stacks ts);
 
 int *intdub(int n);
 int				is_dlist_sorted(t_dlist l);
-
-typedef struct s_save t_save;
-
-struct s_save
-{
-	int i;
-	int k;
-};
-
-void positive_sort(t_two_stacks tstacks, t_save *save, int args_number);
-char				**ft_split(char const *s, char c);
 
 #endif

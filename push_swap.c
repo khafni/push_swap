@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 17:36:23 by khafni            #+#    #+#             */
-/*   Updated: 2021/06/17 15:44:16 by khafni           ###   ########.fr       */
+/*   Updated: 2021/06/18 16:19:40 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ t_two_stacks get_arguments_(int argc, char **argv)
 
 		while (i <= ts->args_number)
 		{
-			dlist_pushback(ts->a, intdub(atoi(argv[i])));
+			dlist_pushback(ts->a, elem_chunk(atoi(argv[i]), 0));
 			i++;
 		}
 	//dlist_move_cursor_to_head(ts->a);
@@ -87,10 +87,7 @@ void *dlist_get_last_elem(t_dlist dl)
 int main(int argc, char *argv[])
 {
 
-	t_save save;
-
-	save.i = 0;
-	save.k = 0;
+	
 	
 	t_two_stacks ts;
 	//printf("%s", argv[1]);
@@ -109,18 +106,7 @@ int main(int argc, char *argv[])
 	pa(ts); */
 
 	
-	int len = argc - 1;
 	
-	while (save.i < 31)
-	{
-		save.k = 0;
-		positive_sort(ts, &save, len);
-		save.i++;
-	}
-	save.k = 0;
-	negative_sort(ts, &save, len);
-	rb(ts);
-	write(1, "rb\n", 3);
 
 
 
