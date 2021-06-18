@@ -12,9 +12,12 @@
 
 #include "push_swap.h"
 
-void			print_int(void *num)
+void			print_int(void *chunk)
 {
-	printf("%d", *((int*)num));
+	t_chunk_elem che;
+
+	che = chunk;
+	printf("value : %d chunk: %d", che->value, che->chunk_num);
 }
 
 t_two_stacks empty_two_stacks(void)
@@ -92,42 +95,23 @@ int main(int argc, char *argv[])
 	t_two_stacks ts;
 	//printf("%s", argv[1]);
 	ts = get_arguments_(argc, argv);
-/* 	sa(ts);
-	pb(ts);
-	pb(ts);
-	pb(ts);
-	ra(ts);
-	rb(ts);
-	rra(ts);
-	rrb(ts);
-	sa(ts);
-	pa(ts);
-	pa(ts);
-	pa(ts); */
-
+	// dlist_print(ts->a, " \n ");	
+	//sa(ts);
+	pb(ts);	
+	pb(ts);	
+	pb(ts);	
+	pb(ts);	
+	pb(ts);	
+	pb(ts);	
+	pb(ts);	
+	pb(ts);	
+	pb(ts);	
 	
-	
-
-
-
-	/* dlist_move_cursor_to_head(ts->a);
-	while (ts->a->cursor_n != ts->a->sentinel)
-	{
-		printf("%d", *(int*)(ts->a->cursor_n->value));
-		dlist_move_cursor_to_next(ts->a);
-	}
-	printf("\n-----------------------------\n");
-	while (ts->b->cursor_n != ts->b->sentinel)
-	{
-		printf("%d", *(int*)(ts->b->cursor_n->value));
-		dlist_move_cursor_to_next(ts->b);
-	} */
-	
-	/* int *val = pop_from_stack(ts->a);
-	while (val)
-	{
-		printf("%d\n", *val);
-		val = pop_from_stack(ts->a);
-	} */
+	if (is_dlist_sorted(ts->a))
+		printf("it is sorted\n");
+	else
+		printf("not sorted\n");
+	printf("\n\n");
+	print_stack(ts->a, " \n ");	
 	return (0);
 }

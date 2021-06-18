@@ -148,5 +148,6 @@ void			dlist_pushback(t_dlist l, void *value);
 
 void push_to_stack(t_dlist stack, void *data);
 void *pop_from_stack(t_dlist stack);
+void  print_stack(t_dlist stack, char *sep);
 
 #endif

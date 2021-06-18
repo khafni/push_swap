@@ -9,4 +9,3 @@ t_chunk_elem elem_chunk(int value, int chunk_num)
 	celm->chunk_num = chunk_num;
 	return (celm);
 }
-

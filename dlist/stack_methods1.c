@@ -23,3 +23,23 @@ void *pop_from_stack(t_dlist stack)
     }
     return (val);
 }
+
+void print_stack(t_dlist l, char *sep)
+{
+    t_dlist_cell	c;
+	void			*value;
+
+	if (l->printer == NULL)
+		return ;
+	printf("L: (");
+	c = l->sentinel->p;
+	while (c != l->sentinel)
+	{
+		value = c->value;
+		(*(l->printer)) (value);
+		c = c->p;
+		if (c != l->sentinel)
+			printf("%s", sep);	
+	} 
+	printf(")");
+}

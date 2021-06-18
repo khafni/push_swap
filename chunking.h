@@ -12,6 +12,7 @@
 
 #ifndef CHUNKING_H
 # define CHUNKING_H
+# include <stdlib.h>
 
 typedef struct s_chunk_elem *t_chunk_elem;
 

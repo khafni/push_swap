@@ -8,9 +8,7 @@ void			sa(t_two_stacks ts)
 
 	if (ts->a->len < 2)
 		return ;
-	dlist_move_cursor_to_tail(ts->a);
-	a = *(int*)(ts->a->cursor_p->value); 
-	b = *(int*)(ts->a->cursor_p->p->value);
+	dlist_move_cursor_to_tail(ts->a);	
 	values_p_swap(&ts->a->cursor_p->value,  &ts->a->cursor_p->p->value);
 }
 
@@ -22,9 +20,7 @@ void			sb(t_two_stacks ts)
 	
 	if (ts->b->len < 2)
 		return ;
-	dlist_move_cursor_to_tail(ts->b);
-	a = *(int*)(ts->b->cursor_p->value); 
-	b = *(int*)(ts->b->cursor_p->p->value);
+	dlist_move_cursor_to_tail(ts->b);	
 	values_p_swap(&ts->b->cursor_p->value,  &ts->b->cursor_p->p->value);
 }
 
