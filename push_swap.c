@@ -12,21 +12,15 @@
 
 #include "push_swap.h"
 
-void			print_int(void *chunk)
-{
-	t_chunk_elem che;
 
-	che = chunk;
-	printf("value : %d chunk: %d", che->value, che->chunk_num);
-}
 
 t_two_stacks empty_two_stacks(void)
 {
 	t_two_stacks ts;
 
 	ts = malloc(sizeof(struct s_two_stacks));
-	ts->a = dlist_empty_create(free, NULL, print_int);
-	ts->b = dlist_empty_create(free, NULL, print_int);
+	ts->a = dlist_empty_create(free, NULL, print_chunk_e);
+	ts->b = dlist_empty_create(free, NULL, print_chunk_e);
 	ts->args_number = 0;
 	return (ts);
 }
@@ -96,21 +90,10 @@ int main(int argc, char *argv[])
 	//printf("%s", argv[1]);
 	ts = get_arguments_(argc, argv);
 	// dlist_print(ts->a, " \n ");	
-	//sa(ts);
-	pb(ts);	
-	pb(ts);	
-	pb(ts);	
-	pb(ts);	
-	pb(ts);	
-	pb(ts);	
-	pb(ts);	
-	pb(ts);	
-	pb(ts);	
-	
-	if (is_dlist_sorted(ts->a))
-		printf("it is sorted\n");
-	else
-		printf("not sorted\n");
+	//sa(ts);	
+	push_to_stack(ts->a, elem_chunk(666, 6));
+	push_to_stack(ts->a, elem_chunk(666, 2));
+	printf("number of chunks: %d\n", calculate_n_of_chunks(ts->a));
 	printf("\n\n");
 	print_stack(ts->a, " \n ");	
 	return (0);
