@@ -41,7 +41,7 @@ int calculate_n_of_chunks(t_dlist stack)
 	return (n_chunks);
 }
 
-t_arrptr fill_sorted_array_from_chnk(t_dlist stack)
+/* t_arrptr fill_sorted_array_from_chnk(t_dlist stack)
 {
 	int which_chunk;
 	t_arrptr arr;
@@ -56,7 +56,7 @@ t_arrptr fill_sorted_array_from_chnk(t_dlist stack)
 		dlist_move_cursor_to_previous(stack);
 	}
 	return (arr);
-}
+} */
 
 void chunk_from_sa_to_sb(t_dlist st_a, t_dlist st_b)
 {
@@ -69,9 +69,10 @@ void chunk_from_sa_to_sb(t_dlist st_a, t_dlist st_b)
 	which_chunk = ((t_chunk_elem)(st_a->cursor_p->value))->chunk_num;
 	while (st_a->cursor_p != st_a->sentinel)
 	{
-		if (st_a->cursor_n != )
+		if (which_chunk != ((t_chunk_elem)(st_a->cursor_p->value))->chunk_num)	
+			break;	
+		printf("|%d|\n", ((t_chunk_elem)(st_a->cursor_p->value))->value);
 		dlist_move_cursor_to_previous(st_a);
 	}
-
 }
 

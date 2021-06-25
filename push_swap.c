@@ -92,9 +92,14 @@ int main(int argc, char *argv[])
 	// dlist_print(ts->a, " \n ");	
 	//sa(ts);	
 	push_to_stack(ts->a, elem_chunk(666, 6));
-	push_to_stack(ts->a, elem_chunk(666, 2));
-	printf("number of chunks: %d\n", calculate_n_of_chunks(ts->a));
+	push_to_stack(ts->a, elem_chunk(667, 6));
+	push_to_stack(ts->a, elem_chunk(668, 6));
+	push_to_stack(ts->a, elem_chunk(661, 6));
+	push_to_stack(ts->a, elem_chunk(663, 2));
+	push_to_stack(ts->a, elem_chunk(6, 2));
+	push_to_stack(ts->a, elem_chunk(4, 2));
+	chunk_from_sa_to_sb(ts->a, ts->b);
 	printf("\n\n");
-	print_stack(ts->a, " \n ");	
+	//print_stack(ts->a, " \n ");	
 	return (0);
 }
