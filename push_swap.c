@@ -91,13 +91,13 @@ int main(int argc, char *argv[])
 	ts = get_arguments_(argc, argv);
 	// dlist_print(ts->a, " \n ");	
 	//sa(ts);	
-	push_to_stack(ts->a, elem_chunk(666, 6));
-	push_to_stack(ts->a, elem_chunk(667, 6));
-	push_to_stack(ts->a, elem_chunk(668, 6));
-	push_to_stack(ts->a, elem_chunk(661, 6));
-	push_to_stack(ts->a, elem_chunk(663, 2));
-	push_to_stack(ts->a, elem_chunk(6, 2));
-	push_to_stack(ts->a, elem_chunk(4, 2));
+	push_to_stack(ts->a, elem_chunk(3, 6));
+	push_to_stack(ts->a, elem_chunk(6, 6));
+	push_to_stack(ts->a, elem_chunk(2, 6));
+	push_to_stack(ts->a, elem_chunk(-41, 6));
+	/* push_to_stack(ts->a, elem_chunk(-50, 2));
+	push_to_stack(ts->a, elem_chunk(33, 2));
+	push_to_stack(ts->a, elem_chunk(0, 2)); */
 	chunk_from_sa_to_sb(ts->a, ts->b);
 	printf("\n\n");
 	//print_stack(ts->a, " \n ");	
