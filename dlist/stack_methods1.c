@@ -24,6 +24,19 @@ void *pop_from_stack(t_dlist stack)
     return (val);
 }
 
+void *get_stack_top_el(t_dlist stack)
+{
+     void *val;
+
+    val = NULL;
+    if (stack->len)
+    {
+        dlist_move_cursor_to_tail(stack);
+        val = stack->cursor_p->value;
+        return (val);
+    }
+    return (val);
+}
 void print_stack(t_dlist l, char *sep)
 {
     t_dlist_cell	c;
@@ -31,7 +44,7 @@ void print_stack(t_dlist l, char *sep)
 
 	if (l->printer == NULL)
 		return ;
-	printf("L: (");
+	printf("L: (\n");
 	c = l->sentinel->p;
 	while (c != l->sentinel)
 	{

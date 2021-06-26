@@ -9,8 +9,8 @@ void			rrr(t_two_stacks ts)
 int		is_dlist_sorted(t_dlist l)
 {
 	int is_sort;
-	int val1;
-	int val2;
+	t_elem val1;
+	t_elem val2;
 
 	is_sort = 1;
 	if(l->len < 2)
@@ -18,9 +18,9 @@ int		is_dlist_sorted(t_dlist l)
 	dlist_move_cursor_to_head(l);
 	while (l->cursor_n->n != l->sentinel)
 	{	
-		val1 = ((t_elem)(l->cursor_n->value))->value;
-		val2 = ((t_elem)(l->cursor_n->n->value))->value;	
-		if (val1 > val2)
+		val1 = ((t_elem)(l->cursor_n->value));
+		val2 = ((t_elem)(l->cursor_n->n->value));	
+		if (val1->value > val2->value)
 			is_sort = 0;
 		dlist_move_cursor_to_next(l);
 	}

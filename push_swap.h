@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 17:02:26 by khafni            #+#    #+#             */
-/*   Updated: 2021/06/26 15:27:43 by khafni           ###   ########.fr       */
+/*   Updated: 2021/06/26 18:53:42 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ void			rrr(t_two_stacks ts);
 int *intdub(int n);
 int				is_dlist_sorted(t_dlist l);
 void			simplify(t_dlist stack_a);
+void radix_sort(t_two_stacks ts);
 
 #endif

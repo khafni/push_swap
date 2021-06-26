@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 17:36:23 by khafni            #+#    #+#             */
-/*   Updated: 2021/06/26 14:37:17 by khafni           ###   ########.fr       */
+/*   Updated: 2021/06/26 21:33:25 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ t_two_stacks get_arguments_(int argc, char **argv)
 	i = 1;
 	ts->args_number = argc - 1;
 	//numbers = ft_split(argv[1], ' ');
-
 		while (i <= ts->args_number)
 		{
 			// dlist_pushback(ts->a, elem(atoi(argv[i]), 0));
@@ -101,7 +100,8 @@ int main(int argc, char *argv[])
 	push_to_stack(ts->a, elem(0, 2)); */
 	// chunk_from_sa_to_sb(ts->a, ts->b);
 	//simplify(ts->a);
-	printf("\n\n");
+	radix_sort(ts);
+	//printf("\n\n");
 	print_stack(ts->a, " \n ");
 	return (0);
 }

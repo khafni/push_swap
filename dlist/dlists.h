@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 09:23:10 by khafni            #+#    #+#             */
-/*   Updated: 2021/04/16 13:42:47 by khafni           ###   ########.fr       */
+/*   Updated: 2021/06/26 19:00:17 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,5 +149,6 @@ void			dlist_pushback(t_dlist l, void *value);
 void push_to_stack(t_dlist stack, void *data);
 void *pop_from_stack(t_dlist stack);
 void  print_stack(t_dlist stack, char *sep);
+void *get_stack_top_el(t_dlist stack);
 
 #endif
