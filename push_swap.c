@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 17:36:23 by khafni            #+#    #+#             */
-/*   Updated: 2021/06/18 16:19:40 by khafni           ###   ########.fr       */
+/*   Updated: 2021/06/26 14:37:17 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ t_two_stacks empty_two_stacks(void)
 	t_two_stacks ts;
 
 	ts = malloc(sizeof(struct s_two_stacks));
-	ts->a = dlist_empty_create(free, NULL, print_chunk_e);
-	ts->b = dlist_empty_create(free, NULL, print_chunk_e);
+	ts->a = dlist_empty_create(free, NULL, print_elem);
+	ts->b = dlist_empty_create(free, NULL, print_elem);
 	ts->args_number = 0;
 	return (ts);
 }
@@ -62,9 +62,11 @@ t_two_stacks get_arguments_(int argc, char **argv)
 
 		while (i <= ts->args_number)
 		{
-			dlist_pushback(ts->a, elem_chunk(atoi(argv[i]), 0));
+			// dlist_pushback(ts->a, elem(atoi(argv[i]), 0));
+			push_to_stack(ts->a, elem(atoi(argv[i]), 0));	
 			i++;
 		}
+	simplify(ts->a);
 	//dlist_move_cursor_to_head(ts->a);
 	return (ts);
 }
@@ -82,24 +84,24 @@ void *dlist_get_last_elem(t_dlist dl)
 }
 
 int main(int argc, char *argv[])
-{
-
-	
-	
+{	
 	t_two_stacks ts;
 	//printf("%s", argv[1]);
 	ts = get_arguments_(argc, argv);
 	// dlist_print(ts->a, " \n ");	
 	//sa(ts);	
-	push_to_stack(ts->a, elem_chunk(3, 6));
-	push_to_stack(ts->a, elem_chunk(6, 6));
-	push_to_stack(ts->a, elem_chunk(2, 6));
-	push_to_stack(ts->a, elem_chunk(-41, 6));
-	/* push_to_stack(ts->a, elem_chunk(-50, 2));
-	push_to_stack(ts->a, elem_chunk(33, 2));
-	push_to_stack(ts->a, elem_chunk(0, 2)); */
-	chunk_from_sa_to_sb(ts->a, ts->b);
+
+	// push_to_stack(ts->a, elem(3, 6));
+	// push_to_stack(ts->a, elem(6, 6));
+	// push_to_stack(ts->a, elem(2, 6));
+	// push_to_stack(ts->a, elem(-41, 6));
+
+	/* push_to_stack(ts->a, elem(-50, 2));
+	push_to_stack(ts->a, elem(33, 2));
+	push_to_stack(ts->a, elem(0, 2)); */
+	// chunk_from_sa_to_sb(ts->a, ts->b);
+	//simplify(ts->a);
 	printf("\n\n");
-	//print_stack(ts->a, " \n ");	
+	print_stack(ts->a, " \n ");
 	return (0);
 }
