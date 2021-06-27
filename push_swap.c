@@ -76,9 +76,7 @@ void *dlist_get_last_elem(t_dlist dl)
 		return (NULL);	
 	dlist_move_cursor_to_head(dl);
 	while (dl->cursor_n->n != dl->sentinel)
-	{
-		dlist_move_cursor_to_next(dl);
-	}
+		dlist_move_cursor_to_next(dl);	
 	return dl->cursor_n->value;
 }
 
@@ -98,10 +96,8 @@ int main(int argc, char *argv[])
 	/* push_to_stack(ts->a, elem(-50, 2));
 	push_to_stack(ts->a, elem(33, 2));
 	push_to_stack(ts->a, elem(0, 2)); */
-	// chunk_from_sa_to_sb(ts->a, ts->b);
-	//simplify(ts->a);
-	radix_sort(ts);
-	//printf("\n\n");
-	print_stack(ts->a, " \n ");
+	// chunk_from_sa_to_sb(ts->a, ts->b);	
+	radix_sort(ts);	
+	//print_stack(ts->a, " \n ");
 	return (0);
 }
