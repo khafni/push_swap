@@ -1,9 +1,11 @@
 #include "push_swap.h"
 
-void			rrr(t_two_stacks ts)
+void			rrr(t_two_stacks ts, int is_printable)
 {
-	rra(ts);
-	rrb(ts);
+	rra(ts, 0);
+	rrb(ts, 0);
+	if (is_printable)
+		write(1, "rrr\n", 4);
 }
 
 int		is_dlist_sorted(t_dlist l)

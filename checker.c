@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include "file.h"
 
-int ft_is_num(char *str)
+/* int ft_is_num(char *str)
 {
 	int i;
 
@@ -44,7 +44,7 @@ t_operation which_operation(t_rstr rs)
 	return (NULL);
 }
 
-t_two_stacks get_arguments(int argc, char **argv, int *e, int args_number)
+static t_two_stacks get_arguments(int argc, char **argv, int *e, int args_number)
 {
 	t_two_stacks	ts;
 	int				i;
@@ -79,7 +79,7 @@ void	get_apply_operations(t_two_stacks ts, int *e)
 			*e = 1;
 	}
 	file_destroy(f);
-}
+} */
 
 /* int main(int argc, char **argv)
 {

@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 17:36:23 by khafni            #+#    #+#             */
-/*   Updated: 2021/06/26 21:33:25 by khafni           ###   ########.fr       */
+/*   Updated: 2021/06/27 16:45:45by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,15 @@ t_two_stacks get_arguments_(int argc, char **argv)
 	int				i;	
 
 	ts = empty_two_stacks();
-	i = 1;
+	//i = 1;
 	ts->args_number = argc - 1;
-	//numbers = ft_split(argv[1], ' ');
-		while (i <= ts->args_number)
-		{
-			// dlist_pushback(ts->a, elem(atoi(argv[i]), 0));
+	i = ts->args_number;
+		while (i >= 1)
+		{	
 			push_to_stack(ts->a, elem(atoi(argv[i]), 0));	
-			i++;
+			i--;
 		}
-	simplify(ts->a);
-	//dlist_move_cursor_to_head(ts->a);
+	simplify(ts->a);	
 	return (ts);
 }
 
@@ -80,24 +78,44 @@ void *dlist_get_last_elem(t_dlist dl)
 	return dl->cursor_n->value;
 }
 
+int check_if_duplicates(int argc, char *argv[])
+{
+	int i;
+	int j;
+
+	i = 1;
+	j = 1;
+	while (i < argc)
+	{
+		j = 1;
+		while (j < argc)
+		{
+			if (j != i && !strcmp(argv[i], argv[j]))
+				return (1);
+			j++;
+		}
+		i++;
+	}	
+	return (0);
+}
+
 int main(int argc, char *argv[])
 {	
 	t_two_stacks ts;
-	//printf("%s", argv[1]);
-	ts = get_arguments_(argc, argv);
-	// dlist_print(ts->a, " \n ");	
-	//sa(ts);	
-
-	// push_to_stack(ts->a, elem(3, 6));
-	// push_to_stack(ts->a, elem(6, 6));
-	// push_to_stack(ts->a, elem(2, 6));
-	// push_to_stack(ts->a, elem(-41, 6));
-
-	/* push_to_stack(ts->a, elem(-50, 2));
-	push_to_stack(ts->a, elem(33, 2));
-	push_to_stack(ts->a, elem(0, 2)); */
-	// chunk_from_sa_to_sb(ts->a, ts->b);	
-	radix_sort(ts);	
+	if (check_if_duplicates(argc, argv))
+	{
+		printf("Error\n");
+		return (0);
+	}	
+	if (argc < 3)
+		return 0;
+	ts = get_arguments_(argc, argv);	
+	if (ts->a->len == 3)	
+		_3random_nums_sort(ts);
+	else if (ts->a->len == 5)
+		_5random_nums_sort(ts);
+	else
+		radix_sort(ts);
 	//print_stack(ts->a, " \n ");
 	return (0);
 }
