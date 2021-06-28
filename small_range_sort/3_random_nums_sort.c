@@ -89,29 +89,39 @@ void push_smallest_number_to_sb(t_two_stacks ts, int min_num)
 	if (ra_or_rra(ts, min_num) == RA)
 	{	
 		em = get_stack_top_el(ts->a);
-		if (em->value == min_num)
-			pb(ts, 1);
-		else
-			ra(ts, 1);	
+		while (em->index != min_num)
+		{
+			ra(ts, 1);
+			em = get_stack_top_el(ts->a);
+			// printf("%d %d\n", em->value, min_num);
+		}
+		pb(ts, 1);
 	}
 	else
 	{	
 		em = get_stack_top_el(ts->a);
-		if (em->value == min_num)
-			pb(ts, 1);
-		else
-			rra(ts, 1);
+		while (em->index != min_num)
+		{
+			rra(ts, 1);		
+			em = get_stack_top_el(ts->a);
+		}
+		pb(ts, 1);
 	}
-
 }
+
 void _5random_nums_sort(t_two_stacks ts)
 {
 	int min_num;
 
 	min_num = get_min_num(ts->a);
-	push_smallest_number_to_sb`	
-
-	print_stack(ts->a, "\n");
+	push_smallest_number_to_sb(ts, 0);	
+	min_num = get_min_num(ts->a);
+	push_smallest_number_to_sb(ts, 1);
+	_3random_nums_sort(ts);
+	//print_stack(ts->a, "\n");
+	pa(ts, 1);
+	pa(ts, 1);
+	//print_stack(ts->a, "\n");
 	// if (arr[3] > arr[2])
 	// 	ra(ts, 1);
 	// if (((t_elem)ts->a->cursor_p->value)->value > ((t_elem)ts->a->cursor_p->p)->value)
