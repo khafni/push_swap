@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 17:02:26 by khafni            #+#    #+#             */
-/*   Updated: 2021/06/27 19:17:09 by khafni           ###   ########.fr       */
+/*   Updated: 2021/06/28 15:12:43 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,8 @@ void			simplify(t_dlist stack_a);
 void radix_sort(t_two_stacks ts);
 void	_3random_nums_sort(t_two_stacks ts);
 void _5random_nums_sort(t_two_stacks ts);
+# define RRA 0
+# define RA 1
+
 
 #endif
