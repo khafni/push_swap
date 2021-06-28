@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 09:23:10 by khafni            #+#    #+#             */
-/*   Updated: 2021/06/26 19:00:17 by khafni           ###   ########.fr       */
+/*   Updated: 2021/06/28 06:55:01 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,8 +130,8 @@ void			dlist_set_before_cursor(t_dlist l, void *value, char delete);
 /*
 **	dlist getters
 */
-void			*dlist_get_after_cursor(t_dlist l, char delete);
-void			*dlist_get_before_cursor(t_dlist l, char delete);
+void			*dlist_get_after_cursor(t_dlist l);
+void			*dlist_get_before_cursor(t_dlist l);
 /*
 **	not needed if the len member of a dlist is used but i like syntatical sugar
 */

@@ -2,9 +2,6 @@
 
 void			sa(t_two_stacks ts, int is_printable)
 {
-	int a;
-	int b;
-	int tmp;
 
 	if (ts->a->len < 2)
 		return ;
@@ -16,10 +13,6 @@ void			sa(t_two_stacks ts, int is_printable)
 
 void			sb(t_two_stacks ts, int is_printable)
 {
-	int a;
-	int b;
-	int tmp;
-	
 	if (ts->b->len < 2)
 		return ;
 	dlist_move_cursor_to_tail(ts->b);	

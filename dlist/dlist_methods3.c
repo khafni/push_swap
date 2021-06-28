@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dlist_methods1.c                                   :+:      :+:    :+:   */
+/*   dlist_methods3.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 11:58:04 by khafni            #+#    #+#             */
-/*   Updated: 2021/03/16 12:00:09 by khafni           ###   ########.fr       */
+/*   Updated: 2021/06/28 06:54:35 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ void			dlist_set_before_cursor(t_dlist l, void *value, char delete)
 	c->value = value;
 }
 
-void			*dlist_get_after_cursor(t_dlist l, char delete)
+void			*dlist_get_after_cursor(t_dlist l)
 {
 	return (l->cursor_n->value);
 }
 
-void			*dlist_get_before_cursor(t_dlist l, char delete)
+void			*dlist_get_before_cursor(t_dlist l)
 {
 	return (l->cursor_p->value);
 }

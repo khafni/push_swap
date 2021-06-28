@@ -20,7 +20,6 @@ t_elem elem(int value, int index)
 
 void sort_elems(t_arrptr arr)
 {
-	t_elem che;
 	int i;
 	int j;
 

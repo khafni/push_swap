@@ -109,7 +109,8 @@ int main(int argc, char *argv[])
 	}	
 	if (argc < 3)
 		return 0;
-	ts = get_arguments_(argc, argv);	
+	ts = get_arguments_(argc, argv);
+	//print_stack(ts->a, " \n ");
 	if (ts->a->len == 3)	
 		_3random_nums_sort(ts);
 	else if (ts->a->len == 5)

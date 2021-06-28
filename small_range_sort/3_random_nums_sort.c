@@ -48,12 +48,18 @@ void _5random_nums_sort(t_two_stacks ts)
 	get_the_numbers_into_arr(ts->b, arr);	
 	pa(ts, 1);
 	dlist_move_cursor_to_tail(ts->a);
-	get_the_numbers_into_arr(ts->a, arr);
-	if (arr[3] > arr[2])
-		ra(ts, 1);
+	//get_the_numbers_into_arr(ts->a, arr);
+	//print_stack(ts->a, "\n");
+	// if (arr[3] > arr[2])
+	// 	ra(ts, 1);
+	if (((t_elem)ts->a->cursor_p->value)->value > ((t_elem)ts->a->cursor_p->p)->value)
+		ra(ts, 1);	
 	pa(ts, 1);
-	dlist_move_cursor_to_tail(ts->a);
-	get_the_numbers_into_arr(ts->a, arr);
-	if (arr[4] > arr[3])
-		ra(ts, 1);
+	print_stack(ts->a, "\n");
+	// dlist_move_cursor_to_tail(ts->a);
+	//get_the_numbers_into_arr(ts->a, arr);
+	// if (((t_elem)ts->a->cursor_p->value)->value > ((t_elem)ts->a->cursor_p->p)->value)
+	// 	ra(ts, 1);	
+	// if (arr[4] > arr[3])
+	// 	ra(ts, 1);
 }
