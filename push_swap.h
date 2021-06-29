@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 17:02:26 by khafni            #+#    #+#             */
-/*   Updated: 2021/06/28 15:12:43 by khafni           ###   ########.fr       */
+/*   Updated: 2021/06/29 19:56:26 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,7 @@ void			simplify(t_dlist stack_a);
 void			radix_sort(t_two_stacks ts);
 void			_3random_nums_sort(t_two_stacks ts);
 void			_5random_nums_sort(t_two_stacks ts);
+void			*dlist_get_last_elem(t_dlist dl);
+int				check_if_duplicates(int argc, char *argv[]);
+int				check_if_nums(char *argv[]);
 #endif

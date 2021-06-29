@@ -43,23 +43,28 @@ int	check_if_duplicates(int argc, char *argv[])
 	return (0);
 }
 
-int	main(int argc, char *argv[])
+int	check_if_nums(char *argv[])
 {
-	t_two_stacks	ts;
+	int	i;
+	int	j;
+	int	count;
 
-	if (check_if_duplicates(argc, argv))
+	i = 1;
+	count = 0;
+	while (argv[i])
 	{
-		printf("Error\n");
-		return (0);
+		j = 0;
+		count = 0;
+		while (argv[i][j])
+		{
+			if ((argv[i][j] != '-') && (argv[i][j] < '0' || argv[i][j] > '9'))
+				return (0);
+			count++;
+			j++;
+		}
+		if (count > 9)
+			return (0);
+		i++;
 	}
-	if (argc < 3)
-		return (0);
-	ts = get_arguments_(argc, argv);
-	if (ts->a->len == 3)
-		_3random_nums_sort(ts);
-	else if (ts->a->len == 5)
-		_5random_nums_sort(ts);
-	else
-		radix_sort(ts);
-	return (0);
+	return (1);
 }

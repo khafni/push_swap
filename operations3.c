@@ -22,7 +22,7 @@ int	is_dlist_sorted(t_dlist l)
 	{	
 		val1 = ((t_elem)(l->cursor_n->value));
 		val2 = ((t_elem)(l->cursor_n->n->value));
-		if (val1->value > val2->value)
+		if (val1->value < val2->value)
 			is_sort = 0;
 		dlist_move_cursor_to_next(l);
 	}
