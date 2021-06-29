@@ -17,32 +17,28 @@
 # include <fcntl.h>
 # include "radix_sort/radix_sort.h"
 # include "CPCA/generic_parrays/garrptr.h"
-
-
-
-typedef struct s_two_stacks  *t_two_stacks;
-
-struct s_two_stacks
+# define RRA 0
+# define RA 1
+typedef struct s_two_stacks
 {
-	t_dlist a;
-	t_dlist b;
-	int args_number;
-};
+	t_dlist	a;
+	t_dlist	b;
+	int		args_number;
+}	*t_two_stacks;
 
-typedef struct s_elem *t_elem;
-struct s_elem
+typedef struct s_elem
 {
-	int value;
-	int index;	
-};
+	int	value;
+	int	index;	
+}	*t_elem;
 
 void			print_elem(void *e_);
-t_elem elem(int value, int index);
+t_elem			elem(int value, int index);
 void			values_p_swap(void **v1_, void **v2_);
-
 t_two_stacks	empty_two_stacks(void);
-typedef void			(*t_operation) (t_two_stacks ts);
+typedef void	(*t_operation)(t_two_stacks ts);
 void			two_stacks_destroy(t_two_stacks ts);
+t_two_stacks	get_arguments_(int argc, char **argv);
 void			sa(t_two_stacks ts, int is_printable);
 void			sb(t_two_stacks ts, int is_printable);
 void			ss(t_two_stacks ts, int is_printable);
@@ -54,14 +50,10 @@ void			rr(t_two_stacks ts, int is_printable);
 void			rra(t_two_stacks ts, int is_printable);
 void			rrb(t_two_stacks ts, int is_printable);
 void			rrr(t_two_stacks ts, int is_printable);
-int *intdub(int n);
+int				*intdub(int n);
 int				is_dlist_sorted(t_dlist l);
 void			simplify(t_dlist stack_a);
-void radix_sort(t_two_stacks ts);
-void	_3random_nums_sort(t_two_stacks ts);
-void _5random_nums_sort(t_two_stacks ts);
-# define RRA 0
-# define RA 1
-
-
+void			radix_sort(t_two_stacks ts);
+void			_3random_nums_sort(t_two_stacks ts);
+void			_5random_nums_sort(t_two_stacks ts);
 #endif

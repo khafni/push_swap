@@ -28,16 +28,16 @@ char	*rstr_to_cstr(t_rstr rs)
 	return (str);
 }
 
-char    rstr_get(t_rstr rs, int index)
+char	rstr_get(t_rstr rs, int index)
 {
-        if (index < 0 || index >= rs->len)
-                return (-42);
-        return (*(rs->data + index));
+	if (index < 0 || index >= rs->len)
+		return (-42);
+	return (*(rs->data + index));
 }
 
-t_rstr			cstr_to_rstr(char *cstr)
+t_rstr	cstr_to_rstr(char *cstr)
 {
-	t_rstr rs;
+	t_rstr	rs;
 	int		i;
 
 	i = 0;

@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef RSTR_H
 # define RSTR_H
 # include <stdio.h>
@@ -24,14 +23,12 @@ void			*ft_mem_grow(void *addr, size_t old_size, size_t new_size);
 **	a resizable string that can be appended to its end
 **	(a char * on steroids)
 */
-typedef struct s_rstr *t_rstr;
-
-struct			s_rstr
+typedef struct s_rstr
 {
 	char		*data;
 	int			alloc;
 	int			len;
-};
+}	*t_rstr;
 /*
 **	rstr constructor
 */
@@ -58,7 +55,7 @@ void			rstr_clear(t_rstr rs);
 */
 
 char			*rstr_to_cstr(t_rstr rs);
-char    		rstr_get(t_rstr rs, int index);
+char			rstr_get(t_rstr rs, int index);
 t_rstr			cstr_to_rstr(char *cstr);
 int				is_rstr_eq_cstr(t_rstr rs, char *cstr);
 #endif

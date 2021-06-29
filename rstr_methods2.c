@@ -12,9 +12,9 @@
 
 #include "rstr.h"
 
-int				is_rstr_eq_cstr(t_rstr rs, char *cstr)
+int	is_rstr_eq_cstr(t_rstr rs, char *cstr)
 {
-	int i;	
+	int	i;	
 
 	i = 0;
 	while (i < rs->len)

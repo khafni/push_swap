@@ -31,9 +31,9 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	return (dst);
 }
 
-void		*ft_mem_grow(void *addr, size_t old_size, size_t new_size)
+void	*ft_mem_grow(void *addr, size_t old_size, size_t new_size)
 {
-	void *tmp;
+	void	*tmp;
 
 	tmp = malloc(new_size);
 	ft_memcpy(tmp, addr, old_size);

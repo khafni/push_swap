@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 09:23:10 by khafni            #+#    #+#             */
-/*   Updated: 2021/06/28 06:55:01 by khafni           ###   ########.fr       */
+/*   Updated: 2021/06/29 19:16:41 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+# include "dlist_norm_hack.h"
 
 /*
 ** circular doubly linked list module
@@ -40,12 +41,12 @@ typedef void	(*t_printer)(void *obj);
 
 typedef int		(*t_compare)(void *obj1, void *obj2);
 
-typedef struct s_dlist_cell
+struct s_dlist_cell
 {
 	void			*value;
 	t_dlist_cell	p;
 	t_dlist_cell	n;
-}	*t_dlist_cell;
+};
 
 /*
 ** the sentinal is the node of the linked list that points to the first

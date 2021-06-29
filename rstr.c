@@ -12,7 +12,7 @@
 
 #include "rstr.h"
 
-t_rstr		rstr_create(int alloc)
+t_rstr	rstr_create(int alloc)
 {
 	t_rstr	str;
 
@@ -23,19 +23,18 @@ t_rstr		rstr_create(int alloc)
 	return (str);
 }
 
-void		rstr_destroy(void *rs_)
+void	rstr_destroy(void *rs_)
 {
 	t_rstr	rs;
 
 	rs = (t_rstr)rs_;
-	
 	free(rs->data);
 	free(rs);
 }
 
-void		rstr_set(t_rstr rs, size_t index, char value)
+void	rstr_set(t_rstr rs, size_t index, char value)
 {
-	size_t new_allc;
+	size_t	new_allc;
 
 	new_allc = (1 + 2 * index);
 	if ((int)index >= rs->alloc)
@@ -45,22 +44,22 @@ void		rstr_set(t_rstr rs, size_t index, char value)
 	}
 	if ((int)index >= rs->len)
 		rs->len = index + 1;
-	*((char*)rs->data + index) = value;
+	*((char *)rs->data + index) = value;
 }
 
-void		rstr_add(t_rstr rs, char value)
+void	rstr_add(t_rstr rs, char value)
 {
 	rstr_set(rs, rs->len, value);
 }
 
-void		rstr_clear(t_rstr rs)
+void	rstr_clear(t_rstr rs)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < rs->len)
 	{
-		*((char*)rs->data + i) = '\0';
+		*((char *)rs->data + i) = '\0';
 		i++;
 	}
 	rs->len = 0;
