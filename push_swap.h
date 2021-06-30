@@ -36,7 +36,7 @@ void			print_elem(void *e_);
 t_elem			elem(int value, int index);
 void			values_p_swap(void **v1_, void **v2_);
 t_two_stacks	empty_two_stacks(void);
-typedef void	(*t_operation)(t_two_stacks ts);
+typedef void	(*t_operation)(t_two_stacks ts, int is_printable);
 void			two_stacks_destroy(t_two_stacks ts);
 t_two_stacks	get_arguments_(int argc, char **argv);
 void			sa(t_two_stacks ts, int is_printable);
