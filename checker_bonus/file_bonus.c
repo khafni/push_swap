@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 11:44:42 by khafni            #+#    #+#             */
-/*   Updated: 2021/06/30 11:45:53 by khafni           ###   ########.fr       */
+/*   Updated: 2021/06/30 12:48:19 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_file	file(int fd)
 {
-	static t_file f = NULL;
+	static t_file	f = NULL;
 
 	if (!f)
 	{
@@ -75,5 +75,5 @@ void	file_read_line(t_file f)
 		f->is_empty = 0;
 		c = file_read_char(f);
 	}
-	rstr_add(f->str_buff, '\0');	
+	rstr_add(f->str_buff, '\0');
 }

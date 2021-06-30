@@ -1,5 +1,5 @@
-#ifndef CHECKER_H
-# define CHECKER_H
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 # include "../push_swap.h"
 # include <string.h>
 # include "file_bonus.h"

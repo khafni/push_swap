@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.h                                             :+:      :+:    :+:   */
+/*   file_bonus.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 20:14:39 by khafni            #+#    #+#             */
-/*   Updated: 2021/06/29 20:47:31 by khafni           ###   ########.fr       */
+/*   Updated: 2021/06/30 12:42:18 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILE_H
-# define FILE_H
+#ifndef FILE_BONUS_H
+# define FILE_BONUS_H
 # include "../rstr.h"
 # define DEFAULT_BUFFER_SIZE 4000
 # include <unistd.h>
