@@ -32,12 +32,12 @@ int	execute_operation(char *line, t_two_stacks ts)
 	t_file		f;
 
 	f = file(0);
-	if (!f->str_buff->len)
+	if (f->str_buff->len < 2)
 		return (1);
 	op = which_operation(line);
 	if (!op)
 	{
-		write(1, "Erroroo\n", 6);
+		write(1, "Error\n", 6);
 		two_stacks_destroy(ts);
 		file_destroy(f);
 		return (0);
