@@ -20,4 +20,4 @@
 - [x] finish the checker program
 
 ## push swap program
-[]
+[x]
