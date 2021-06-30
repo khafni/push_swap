@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 17:02:26 by khafni            #+#    #+#             */
-/*   Updated: 2021/06/29 19:56:26 by khafni           ###   ########.fr       */
+/*   Updated: 2021/06/30 11:25:28 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,5 @@ void			_5random_nums_sort(t_two_stacks ts);
 void			*dlist_get_last_elem(t_dlist dl);
 int				check_if_duplicates(int argc, char *argv[]);
 int				check_if_nums(char *argv[]);
+int				ft_strcmp(const char *s1, const char *s2);
 #endif

@@ -34,7 +34,7 @@ int	check_if_duplicates(int argc, char *argv[])
 		j = 1;
 		while (j < argc)
 		{
-			if (j != i && !strcmp(argv[i], argv[j]))
+			if (j != i && !ft_strcmp(argv[i], argv[j]))
 				return (1);
 			j++;
 		}

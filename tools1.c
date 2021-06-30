@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 14:06:22 by khafni            #+#    #+#             */
-/*   Updated: 2021/03/31 14:07:53 by khafni           ###   ########.fr       */
+/*   Updated: 2021/06/30 11:32:09 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,18 @@ void	*ft_mem_grow(void *addr, size_t old_size, size_t new_size)
 	ft_memcpy(tmp, addr, old_size);
 	free(addr);
 	return (tmp);
+}
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	size_t			i;
+	unsigned char	*str1;
+	unsigned char	*str2;
+
+	i = 0;
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	while (str1[i] && str1[i] && str1[i] == str2[i])
+		i++;
+	return (str1[i] - str2[i]);
 }

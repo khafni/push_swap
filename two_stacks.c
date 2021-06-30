@@ -2,12 +2,15 @@
 
 t_two_stacks	empty_two_stacks(void)
 {
-	t_two_stacks	ts;
+	static t_two_stacks	ts = NULL;
 
-	ts = malloc(sizeof(struct s_two_stacks));
-	ts->a = dlist_empty_create(free, NULL, NULL);
-	ts->b = dlist_empty_create(free, NULL, NULL);
-	ts->args_number = 0;
+	if (!ts)
+	{
+		ts = malloc(sizeof(struct s_two_stacks));
+		ts->a = dlist_empty_create(free, NULL, NULL);
+		ts->b = dlist_empty_create(free, NULL, NULL);
+		ts->args_number = 0;
+	}
 	return (ts);
 }
 
@@ -38,17 +41,20 @@ int	*intdub(int n)
 
 t_two_stacks	get_arguments_(int argc, char **argv)
 {
-	t_two_stacks	ts;
-	int				i;	
+	static t_two_stacks	ts = NULL;
+	int					i;
 
-	ts = empty_two_stacks();
-	ts->args_number = argc - 1;
-	i = ts->args_number;
-	while (i >= 1)
+	if (!ts)
 	{
-		push_to_stack(ts->a, elem(atoi(argv[i]), 0));
-		i--;
+		ts = empty_two_stacks();
+		ts->args_number = argc - 1;
+		i = ts->args_number;
+		while (i >= 1)
+		{
+			push_to_stack(ts->a, elem(atoi(argv[i]), 0));
+			i--;
+		}
+		simplify(ts->a);
 	}
-	simplify(ts->a);
 	return (ts);
 }

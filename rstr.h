@@ -6,7 +6,7 @@
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 13:58:11 by khafni            #+#    #+#             */
-/*   Updated: 2021/03/31 15:24:36 by khafni           ###   ########.fr       */
+/*   Updated: 2021/06/30 11:06:22 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define RSTR_H
 # include <stdio.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 /*
 **	stupid one usage version implementation of realloc
@@ -58,4 +59,5 @@ char			*rstr_to_cstr(t_rstr rs);
 char			rstr_get(t_rstr rs, int index);
 t_rstr			cstr_to_rstr(char *cstr);
 int				is_rstr_eq_cstr(t_rstr rs, char *cstr);
+void			print_rstr(t_rstr rs);
 #endif

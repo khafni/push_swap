@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.c                                             :+:      :+:    :+:   */
+/*   file_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khafni <khafni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 20:47:56 by khafni            #+#    #+#             */
-/*   Updated: 2021/06/29 21:42:46 by khafni           ###   ########.fr       */
+/*   Created: 2021/06/30 11:44:42 by khafni            #+#    #+#             */
+/*   Updated: 2021/06/30 11:45:53 by khafni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "file.h"
+#include "file_bonus.h"
 
-t_file file(int fd)
+t_file	file(int fd)
 {
 	static t_file f = NULL;
 
@@ -30,16 +30,16 @@ t_file file(int fd)
 	return (f);
 }
 
-void		file_destroy(t_file f)
+void	file_destroy(t_file f)
 {
 	free(f->buffer);
 	rstr_destroy(f->str_buff);
 	free(f);
 }
 
-int			file_read_char(t_file f)
+int	file_read_char(t_file f)
 {
-	char c;
+	char	c;
 
 	if (f->cursor == f->len)
 	{
@@ -59,13 +59,13 @@ int			file_read_char(t_file f)
 	{
 		c = f->buffer[f->cursor];
 		f->cursor++;
-		return (int)c;
+		return ((int)c);
 	}
 }
 
-void		file_read_line(t_file f)
+void	file_read_line(t_file f)
 {
-	int		c;
+	int	c;
 
 	rstr_clear(f->str_buff);
 	c = file_read_char(f);
